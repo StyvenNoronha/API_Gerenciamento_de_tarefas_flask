@@ -1,16 +1,15 @@
-from flask import Flask
-
+from flask import Flask, request # type: ignore
+from models.task import Task
 app = Flask(__name__)
 
+tasks = []
 
-@app.route("/")
-def hello_world():
-    return "Hello world"
+@app.route('/tasks', methods=['POST'])
+def create_tasks():
+    data = request.get_json()
 
+    return data
 
-@app.route("/about")
-def about():
-    return "pagina de sobre"
 
 
 if __name__ == "__main__":
