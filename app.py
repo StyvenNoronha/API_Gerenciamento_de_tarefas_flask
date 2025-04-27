@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 tasks = []
 tasksIdControl = 1
-
+#pip install -r requirements.txt
 
 @app.route("/tasks", methods=["POST"])
 def create_tasks():
@@ -18,7 +18,7 @@ def create_tasks():
     )
     tasksIdControl += 1
     tasks.append(new_task)
-    return jsonify({"message": "Nova tarefa criada com sucesso"})
+    return jsonify({"message": "Nova tarefa criada com sucesso", "id":new_task.id})
 
 @app.route("/tasks", methods=["GET"])
 def read_tasks():
