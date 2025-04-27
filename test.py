@@ -33,7 +33,7 @@ def testGetTask():
         assert task_id == response_json["id"]
 
 
-def test_update_task():
+def testUpdateTask():
     if tasks:
         task_id = tasks[0]
         payload = {
@@ -55,7 +55,7 @@ def test_update_task():
         assert response_json["completed"] == payload["completed"]
 
 
-def test_delete_task():
+def testDeleteTask():
     if tasks:
         task_id = tasks[0]
         response = requests.delete(f"{BASE_URL}/tasks/{task_id}")
